@@ -1,7 +1,5 @@
 # MENU
-%%writefile menu.py
-
-from cadastrar_produto import cadastrar_produto
+from cadastro_de_produtos import cadastrar_produto
 from registrar_entrada import registrar_entrada
 from registrar_saida import registrar_saida
 from consultar_estoque import consultar_estoque
@@ -46,10 +44,7 @@ def iniciar_menu():
             registrar_saida(produto, quantidade)
 
         elif opcao == "4":
-
-            produto = input("Produto: ")
-
-            consultar_estoque(produto)
+             consultar_estoque()
 
         elif opcao == "5":
 
