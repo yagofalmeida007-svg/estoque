@@ -1,55 +1,66 @@
 # MENU
-while True:
+%%writefile menu.py
 
-    print("\n===== SISTEMA DE ESTOQUE =====")
-    print("1 - Cadastrar produto")
-    print("2 - Registrar entrada")
-    print("3 - Registrar saída")
-    print("4 - Consultar estoque")
-    print("5 - Alertar estoque baixo")
-    print("6 - Sair")
+from funcoes.cadastrar_produto import cadastrar_produto
+from funcoes.registrar_entrada import registrar_entrada
+from funcoes.registrar_saida import registrar_saida
+from funcoes.consultar_estoque import consultar_estoque
+from funcoes.alertar_estoque_baixo import alertar_estoque_baixo
 
-    opcao = input("Escolha uma opção: ")
 
-    if opcao == "1":
+def iniciar_menu():
 
-        nome = input("Nome do produto: ")
-        categoria = input("Categoria: ")
-        preco = float(input("Preço: R$ "))
-        quantidade = int(input("Quantidade: "))
+    while True:
 
-        cadastrar_produto(nome, categoria, preco, quantidade)
+        print("\n===== SISTEMA DE ESTOQUE =====")
+        print("1 - Cadastrar produto")
+        print("2 - Registrar entrada")
+        print("3 - Registrar saída")
+        print("4 - Consultar estoque")
+        print("5 - Alertar estoque baixo")
+        print("6 - Sair")
 
-    elif opcao == "2":
+        opcao = input("Escolha uma opção: ")
 
-        produto = input("Produto: ")
-        quantidade = int(input("Quantidade de entrada: "))
+        if opcao == "1":
 
-        registrar_entrada(produto, quantidade)
+            nome = input("Nome do produto: ")
+            categoria = input("Categoria: ")
+            preco = float(input("Preço: R$ "))
+            quantidade = int(input("Quantidade: "))
 
-    elif opcao == "3":
+            cadastrar_produto(nome, categoria, preco, quantidade)
 
-        produto = input("Produto: ")
-        quantidade = int(input("Quantidade de saída: "))
+        elif opcao == "2":
 
-        registrar_saida(produto, quantidade)
+            produto = input("Produto: ")
+            quantidade = int(input("Quantidade de entrada: "))
 
-    elif opcao == "4":
+            registrar_entrada(produto, quantidade)
 
-        produto = input("Produto: ")
+        elif opcao == "3":
 
-        consultar_estoque(produto)
+            produto = input("Produto: ")
+            quantidade = int(input("Quantidade de saída: "))
 
-    elif opcao == "5":
+            registrar_saida(produto, quantidade)
 
-        limite = int(input("Limite mínimo: "))
+        elif opcao == "4":
 
-        alertar_estoque_baixo(limite)
+            produto = input("Produto: ")
 
-    elif opcao == "6":
+            consultar_estoque(produto)
 
-        print("Programa encerrado.")
-        break
+        elif opcao == "5":
 
-    else:
-        print("Opção inválida!")
+            limite = int(input("Limite mínimo: "))
+
+            alertar_estoque_baixo(limite)
+
+        elif opcao == "6":
+
+            print("Programa encerrado.")
+            break
+
+        else:
+            print("Opção inválida!")
