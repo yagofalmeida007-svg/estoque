@@ -1,16 +1,24 @@
 from cadastro_de_produtos import estoque
-def consultar_estoque(produto_id):
-    """Verifica saldo atual do produto"""
 
-    if produto_id in estoque:
 
-        dados = estoque[produto_id]
+def consultar_estoque():
+    """Mostra todos os produtos cadastrados"""
 
-        print("\n--- DADOS DO PRODUTO ---")
-        print(f"Produto: {produto_id}")
-        print(f"Categoria: {dados['categoria']}")
-        print(f"Preço: R${dados['preco']:.2f}")
-        print(f"Quantidade: {dados['quantidade']}")
+    print("\n========== ESTOQUE ==========")
 
-    else:
-        print("Produto não encontrado!")
+    if not estoque:
+        print("Estoque vazio.")
+        return
+
+    print(f"{'PRODUTO':<15} {'CATEGORIA':<15} {'PREÇO':<10} {'QUANTIDADE':<10}")
+
+    print("-" * 55)
+
+    for produto, dados in estoque.items():
+
+        print(
+            f"{produto:<15} "
+            f"{dados['categoria']:<15} "
+            f"R${dados['preco']:<9.2f} "
+            f"{dados['quantidade']:<10}"
+        )
