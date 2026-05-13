@@ -1,11 +1,11 @@
 # MENU
 %%writefile menu.py
 
-from funcoes.cadastrar_produto import cadastrar_produto
-from funcoes.registrar_entrada import registrar_entrada
-from funcoes.registrar_saida import registrar_saida
-from funcoes.consultar_estoque import consultar_estoque
-from funcoes.alertar_estoque_baixo import alertar_estoque_baixo
+from cadastrar_produto import cadastrar_produto
+from registrar_entrada import registrar_entrada
+from registrar_saida import registrar_saida
+from consultar_estoque import consultar_estoque
+from alertar_estoque_baixo import alertar_estoque_baixo
 
 
 def iniciar_menu():
